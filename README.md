@@ -1,5 +1,10 @@
 # Latent Denoising Adversarial Autoencoder
 
+Adversarial Autoencoders (AAEs) are a powerful class of generative models that map input
+data into a structured latent space, regularized via adversarial training. However, latent vectors produced by the encoder may include noise that degrades the quality of reconstructed or generated samples. This project proposes a novel Hybrid AAE architecture that integrates a denoising Diffusion model between the encoder and decoder to mitigate the impact of latent noise. This Hybrid AAE model can be imported and used via the `LatentDenoisingAAE` module.
+
+Experiments were also conducted to test the benefits of the Latent Denoising AAE. During the experiments, both the traditional AAE and our Hybrid AAE were trained on the MNIST dataset over 10 independent runs. During training, Gaussian noise was added to the latent vectors of both models to assess the robustness of the Hybrid AAE. Experimental results show that the Hybrid AAE significantly outperforms the baseline, achieving an average Frechet Inception Distance (FID) of 0.09 compared to 0.37 for the regular AAE. These findings validate our hypothesis that denoising the latent space using a Diffusion model improves the quality of generated samples.
+
 ## How to run the experiment used in the paper
 1. Open the `Latent Denoising AAE vs Regular AAE.ipynb` locally or in Google Colab
 2. If using Google Colab, make sure the runtime type is set to T4 GPU
